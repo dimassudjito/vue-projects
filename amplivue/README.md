@@ -1,4 +1,7 @@
 # amplivue
+```
+vue authentication with aws amplivue
+```
 
 ## Project setup
 ```
