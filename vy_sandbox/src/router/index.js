@@ -16,10 +16,15 @@ const routes = [
     component: () => import('../views/About.vue')
   },
   {
-    path: '/Form',
+    path: '/form',
     name: 'Form',
     component: () => import('../views/Form.vue')
-  }
+  },
+  {
+    path: '/slot',
+    name: 'TestSlot',
+    component: () => import('../views/TestSlot.vue')
+  },
 ]
 
 const router = new VueRouter({
