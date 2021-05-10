@@ -42,6 +42,7 @@ export default {
         user.authenticateUser(authDetails, {
             onSuccess: data => {
                 console.log('onSucess: ', data);
+                this.$router.push('dashboard')
             },
 
             onFailure: err => {

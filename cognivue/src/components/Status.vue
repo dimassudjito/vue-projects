@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
-      {{status ? 'You are logged in' : 'Please login below'}}
+      <p>
+        {{status ? 'You are logged in' : 'You are not logged in, please login first'}}
+      </p>
+      <button v-if="status" @click="logout">Log out</button>
   </div>
 </template>
 
@@ -18,22 +21,30 @@ export default {
   },
   methods: {
     getSession() {
-        user = Pool.getCurrentUser()
+        const user = Pool.getCurrentUser()
         if (user) {
             user.getSession((err, session) => {
             if (err) {
-                console.log('session: ', session)
+                console.log('authentication failed: ', session)
             } else {
-                console.log('session: ', session)
+                console.log('authentication sucessful: ', session)
+                this.status = true
             }
             })
         } else {
-            console.log('session: ', session)
+            console.log('authentication failed: user is null ')
         }
+    },
+    logout() {
+      const user = Pool.getCurrentUser()
+      if (user) {
+        user.signOut();
+        this.$router.push('/')
+      }
     }
   },
   created() {
-      console.log("test")
+      this.getSession()
   }
 }
 </script>

@@ -15,7 +15,7 @@
 import UserPool from '../UserPool';
 
 export default {
-  name: 'Register',
+  name: 'RegisterMain',
   props: {
   },
   data() {
