@@ -4,10 +4,15 @@
 
 <script>
 import * as d3 from 'd3'
-import life from '@/assets/claus.js'
 
 export default {
   name: 'TreeLife',
+  data() {
+    return {
+      life:
+        '(Bovine:0.69395,(Gibbon:0.36079,(Orang:0.33636,(Gorilla:0.17147,(Chimp:0.19268, Human:0.11927):0.08386):0.06124):0.15057):0.54939,Mouse:1.21460):0.10;'
+    }
+  },
   mounted() {
     this.getChart()
   },
@@ -44,7 +49,7 @@ export default {
         return r
       }
 
-      let data = parseNewick(life)
+      let data = parseNewick(this.life)
       let width = 900
       let outerRadius = width / 2
       let innerRadius = outerRadius - 170
